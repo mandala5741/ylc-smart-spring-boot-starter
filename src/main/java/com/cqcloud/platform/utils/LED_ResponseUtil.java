@@ -161,7 +161,6 @@ public class LED_ResponseUtil {
      *
      * @param textContextList 每行的显示参数，详细的解释参加TEXT_CONTEXT 定义处。
      * @param VoiceText       需要播放的语音文字，字符串类型，编码必须是GBK2312。
-     * @param SaveFlag        保存标志:
      *                        0 为下载到临时信息区，掉电会丢失，
      *                        1 为下载到广告语存储区，掉电会保存，不建议频繁修改的文字下载到广告语存储区。
      * @throws UnsupportedEncodingException

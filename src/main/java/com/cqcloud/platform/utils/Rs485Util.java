@@ -230,7 +230,7 @@ public class Rs485Util {
     }
 
     /**
-     * 构建第二行显示命令 - "渝BS775W"
+     * 构建第二行显示命令 - "渝A12345"
      */
     public static String buildPlateNumberLine(String plateNumber) {
         return buildLoadAdCommand(2, COLOR_RED, plateNumber);
@@ -264,10 +264,10 @@ public class Rs485Util {
     }
 
     /**
-     * 构建车牌语音播报 - "渝BS775W，欢迎光临"
+     * 构建车牌语音播报 - "渝A12345，欢迎光临"
      */
     public static String buildPlateVoiceCommand(String plateNumber) {
-        // 组合语音：文字"渝BS775W" + 语音索引01("欢迎光临")
+        // 组合语音：文字"渝A12345" + 语音索引01("欢迎光临")
         return buildPlayVoiceCommand(plateNumber + "\u0001"); // 使用0x01作为语音索引
     }
 
@@ -782,7 +782,7 @@ public class Rs485Util {
 
     public static void main(String[] args) {
 
-        String plateNumber = "渝BS775W";
+        String plateNumber = "渝A12345";
         // 1. 车牌号+一路平安，欢迎再次光临
         String exitVoice = buildExitBlessingVoice(plateNumber);
         System.out.println("出场祝福语音: " + exitVoice);
@@ -809,7 +809,7 @@ public class Rs485Util {
         // 播报："请缴费停车费125元"
 
         // 3. 生成临时支付二维码（显示60秒）
-        //String paymentQrcode = Rs485Util.buildPaymentQrcode("https://tcc.tlgdiot.cn/wechat/pages/pay/index?carlicense="+"渝BS775W", 60);
+        //String paymentQrcode = Rs485Util.buildPaymentQrcode("https://tcc.tlgdiot.cn/wechat/pages/pay/index?carlicense="+"渝A12345", 60);
         //System.out.println("支付二维码: " + paymentQrcode);
         /**
         // 1. 默认固定欢迎显示
@@ -825,7 +825,7 @@ public class Rs485Util {
         **/
 
         /**
-        String plateNumber = "渝BS775W";
+        String plateNumber = "渝A12345";
         // 测试生成与日志中相同的数据
         String line1 = buildWelcomeLine();
         String line2 = buildPlateNumberLine(plateNumber);

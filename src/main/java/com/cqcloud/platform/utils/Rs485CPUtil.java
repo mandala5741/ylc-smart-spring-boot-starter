@@ -243,7 +243,7 @@ public class Rs485CPUtil {
 
     /**
      * 构建车牌号+欢迎光临语音 - 使用字符索引
-     * 示例：渝BS775W欢迎光临
+     * 示例：渝A12345欢迎光临
      */
     public static String buildPlateWelcomeVoice(String plateNumber) {
         return buildPlateWithVoiceCommand(plateNumber, '\u0001'); // 车牌 + 欢迎光临
@@ -251,7 +251,7 @@ public class Rs485CPUtil {
 
     /**
      * 构建车牌号+请入场停车语音 - 使用字符索引
-     * 示例：渝BS775W请入场停车
+     * 示例：渝A12345请入场停车
      */
     public static String buildPlateEnterVoice(String plateNumber) {
         return buildPlateWithVoiceCommand(plateNumber, '\u0014'); // 车牌 + 请入场停车
@@ -259,7 +259,7 @@ public class Rs485CPUtil {
 
     /**
      * 构建车牌号+请缴费语音 - 使用字符索引
-     * 示例：渝BS775W请缴费
+     * 示例：渝A12345请缴费
      */
     public static String buildPlatePaymentVoice(String plateNumber) {
         return buildPlateWithVoiceCommand(plateNumber, '\u000B'); // 车牌 + 请缴费
@@ -267,7 +267,7 @@ public class Rs485CPUtil {
 
     /**
      * 构建车牌号+一路平安语音 - 使用字符索引
-     * 示例：渝BS775W一路平安
+     * 示例：渝A12345一路平安
      */
     public static String buildPlateSmoothJourneyVoice(String plateNumber) {
         return buildPlateWithVoiceCommand(plateNumber, '\u005F'); // 车牌 + 一路平安
@@ -275,7 +275,7 @@ public class Rs485CPUtil {
 
     /**
      * 构建车牌号+再次光临语音 - 使用字符索引
-     * 示例：渝BS775W再次光临
+     * 示例：渝A12345再次光临
      */
     public static String buildPlateAgainWelcomeVoice(String plateNumber) {
         return buildPlateWithVoiceCommand(plateNumber, '\u0062'); // 车牌 + 再次光临
@@ -446,7 +446,7 @@ public class Rs485CPUtil {
     // ==================== 测试方法 ====================
 
     public static void main(String[] args) {
-        String plateNumber = "渝BS775W";
+        String plateNumber = "渝A12345";
 
         System.out.println("=== 各种JSON格式输出 ===");
 

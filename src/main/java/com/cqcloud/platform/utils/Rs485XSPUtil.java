@@ -274,7 +274,7 @@ public class Rs485XSPUtil {
     }
     /**
      * 构建车牌号+欢迎光临语音 - 使用字符索引
-     * 示例：渝BS775W欢迎光临
+     * 示例：渝A12345欢迎光临
      */
     public static String buildPlateWelcomeVoice(String plateNumber) {
         return buildPlateWithVoiceCommand(plateNumber, '\u0001'); // 车牌 + 欢迎光临
@@ -339,7 +339,7 @@ public class Rs485XSPUtil {
     }
     /**
      * 构建车牌号+请缴费语音 - 使用字符索引
-     * 示例：渝BS775W请缴费
+     * 示例：渝A12345请缴费
      */
     public static String buildPlatePaymentVoice(String plateNumber) {
         return buildPlateWithVoiceCommand(plateNumber, '\u000B'); // 车牌 + 请缴费
@@ -788,7 +788,7 @@ public class Rs485XSPUtil {
 // ==================== 测试方法 ====================
 
     public static void main(String[] args) {
-        String plateNumber = "渝BS775W";
+        String plateNumber = "渝A12345";
 
         System.out.println("=== 各种JSON格式输出 ===");
 

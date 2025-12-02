@@ -34,40 +34,40 @@ TTS语音: 支持文本转语音功能
 2模组竖屏: 双模组竖屏
 
 主要类说明
-1. DisplayVoiceCardProtocol - 主协议工具类
+1. DisplayVoiceUtils - 主协议工具类
    java
    // 支持所有屏幕类型的通用协议工具
-   DisplayVoiceCardProtocol protocol = new DisplayVoiceCardProtocol(ScreenEnum.COLOR_SCREEN);
+   DisplayVoiceUtils protocol = new DisplayVoiceUtils(ScreenEnum.COLOR_SCREEN);
 
 // 加载广告内容（自动根据屏幕类型选择合适协议）
 byte[] packet = protocol.buildLoadAdsPacket(1, 8, "欢迎光临");
 
 // 播放语音
 byte[] voicePacket = protocol.buildPlayVoicePacket(1);
-2. Rs485Util - 横屏显示工具类
+2. Rs485Utils - 横屏显示工具类
    java
    // 构建入场场景
-   String[] entryScene = Rs485Util.buildEntryScene("渝BS775W", 56);
+   String[] entryScene = Rs485Utils.buildEntryScene("渝BS775W", 56);
 
 // 构建二维码显示
-String qrcodeCmd = Rs485Util.buildQrcodeCommand("https://example.com");
+String qrcodeCmd = Rs485Utils.buildQrcodeCommand("https://example.com");
 
 // TTS语音播报
-String ttsCmd = Rs485Util.buildTTSVoiceCommand("欢迎光临");
-3. Rs485CPUtil - 彩屏显示工具类
+String ttsCmd = Rs485Utils.buildTTSVoiceCommand("欢迎光临");
+3. Rs485CPUtils - 彩屏显示工具类
    java
    // 彩屏显示控制
-   String[] display = Rs485CPUtil.buildSmartParkingDisplay(50);
+   String[] display = Rs485CPUtils.buildSmartParkingDisplay(50);
 
 // 彩屏语音播报
-String voiceCmd = Rs485CPUtil.buildPlateWelcomeVoice("渝BS775W");
-4. Rs485XSPUtil - 小竖屏显示工具类
+String voiceCmd = Rs485CPUtils.buildPlateWelcomeVoice("渝BS775W");
+4. Rs485XSPUtils - 小竖屏显示工具类
    java
    // 小竖屏显示
-   String cmd = Rs485XSPUtil.buildSmallScreenWelcome();
+   String cmd = Rs485XSPUtils.buildSmallScreenWelcome();
 
 // 小竖屏完整场景
-String[] scene = Rs485XSPUtil.buildSmallScreenEntryScene("渝BS775W", 48);
+String[] scene = Rs485XSPUtils.buildSmallScreenEntryScene("渝BS775W", 48);
 5. Rs485DisplayUtils - 通用显示工具类
    java
    // 智慧停车显示
@@ -108,37 +108,37 @@ byte[] multiData = LED_ResponseUtil.LED_MuiltLineDisAndPlayVoice(textContextList
 1. 基础使用
    java
    // 创建协议实例（默认标准横屏）
-   DisplayVoiceCardProtocol protocol = new DisplayVoiceCardProtocol();
+   DisplayVoiceUtils protocol = new DisplayVoiceUtils();
 
 // 加载广告内容
 byte[] packet = protocol.buildLoadAdsPacket(1, 1, "欢迎光临");
 
 // 转换为十六进制字符串
-String hexStr = DisplayVoiceCardProtocol.bytesToHex(packet);
+String hexStr = DisplayVoiceUtils.bytesToHex(packet);
 2. 停车场入场场景
    java
    String plateNumber = "渝BS775W";
    int parkingSpace = 48;
 
-// 使用Rs485Util构建入场场景
-String[] entryScene = Rs485Util.buildEntryScene(plateNumber, parkingSpace);
+// 使用Rs485Utils构建入场场景
+String[] entryScene = Rs485Utils.buildEntryScene(plateNumber, parkingSpace);
 
 // 生成JSON格式命令
-String jsonCommand = Rs485Util.buildRs485Json(entryScene);
+String jsonCommand = Rs485Utils.buildRs485Json(entryScene);
 3. 停车场出场场景
    java
    String plateNumber = "渝BS775W";
    String amount = "15";
 
-// 使用Rs485Util构建出场场景
-String[] exitScene = Rs485Util.buildExitScene(plateNumber, amount);
+// 使用Rs485Utils构建出场场景
+String[] exitScene = Rs485Utils.buildExitScene(plateNumber, amount);
 
 // 生成JSON格式命令
-String jsonCommand = Rs485Util.buildRs485Json(exitScene);
+String jsonCommand = Rs485Utils.buildRs485Json(exitScene);
 4. 彩屏显示
    java
    // 创建彩屏协议实例
-   DisplayVoiceCardProtocol colorScreen = new DisplayVoiceCardProtocol(ScreenEnum.COLOR_SCREEN);
+   DisplayVoiceUtils colorScreen = new DisplayVoiceUtils(ScreenEnum.COLOR_SCREEN);
 
 // 彩屏广告内容
 byte[] colorPacket = colorScreen.buildLoadAdsPacket(1, 8, "欢迎光临");
@@ -186,42 +186,42 @@ SMALL_VERTICAL(6, "小竖屏");
 示例1：完整入场流程
 java
 // 1. 设置屏幕类型
-DisplayVoiceCardProtocol screen = new DisplayVoiceCardProtocol(ScreenEnum.STANDARD_HORIZONTAL);
+DisplayVoiceUtils screen = new DisplayVoiceUtils(ScreenEnum.STANDARD_HORIZONTAL);
 
 // 2. 构建显示命令
 String plateNumber = "渝BS775W";
 int parkingSpace = 48;
 
 // 第一行：欢迎光临
-String line1 = Rs485Util.buildLoadAdCommand(1, COLOR_RED, "欢迎光临");
+String line1 = Rs485Utils.buildLoadAdCommand(1, COLOR_RED, "欢迎光临");
 
 // 第二行：车牌号
-String line2 = Rs485Util.buildLoadAdCommand(2, COLOR_RED, plateNumber);
+String line2 = Rs485Utils.buildLoadAdCommand(2, COLOR_RED, plateNumber);
 
 // 第三行：提示语
-String line3 = Rs485Util.buildLoadAdCommand(3, COLOR_RED, "一车一杆自动识别");
+String line3 = Rs485Utils.buildLoadAdCommand(3, COLOR_RED, "一车一杆自动识别");
 
 // 第四行：车位信息
-String line4 = Rs485Util.buildLoadAdCommand(4, COLOR_RED, "剩余车位" + parkingSpace + "个");
+String line4 = Rs485Utils.buildLoadAdCommand(4, COLOR_RED, "剩余车位" + parkingSpace + "个");
 
 // 3. 构建语音命令
-String voice = Rs485Util.buildPlayVoiceCommand(plateNumber + "\u0001");
+String voice = Rs485Utils.buildPlayVoiceCommand(plateNumber + "\u0001");
 
 // 4. 生成JSON
 String[] commands = {line1, line2, line3, line4, voice};
-String json = Rs485Util.buildRs485Json(commands);
+String json = Rs485Utils.buildRs485Json(commands);
 示例2：二维码支付场景
 java
 // 生成支付二维码
-String payUrl = "https://tcc.tlgdiot.cn/wechat/pages/pay/index?carlicense=渝BS775W";
-String qrcodeCmd = Rs485Util.buildQrcodeCommand(payUrl);
+String payUrl = "https://xxxxx/wechat/pages/pay/index?carlicense=渝BS775W";
+String qrcodeCmd = Rs485Utils.buildQrcodeCommand(payUrl);
 
 // 同时显示支付提示
-String promptCmd = Rs485Util.buildLoadAdCommand(1, COLOR_GREEN, "请扫码支付");
+String promptCmd = Rs485Utils.buildLoadAdCommand(1, COLOR_GREEN, "请扫码支付");
 
 // 生成JSON
 String[] commands = {promptCmd, qrcodeCmd};
-String json = Rs485Util.buildRs485Json(commands);
+String json = Rs485Utils.buildRs485Json(commands);
 注意事项
 编码问题: 中文字符请使用GBK编码
 
@@ -237,7 +237,7 @@ CRC校验: 所有数据包都包含CRC16校验
 添加新的屏幕类型
 在ScreenEnum中添加新的枚举值
 
-在DisplayVoiceCardProtocol中添加对应的处理方法
+在DisplayVoiceUtils中添加对应的处理方法
 
 根据需要创建专用的工具类
 
@@ -265,12 +265,12 @@ CRC校验失败: 检查数据包长度和计算方式
 调试方法
 java
 // 启用调试输出
-String hexStr = DisplayVoiceCardProtocol.bytesToHex(packet);
+String hexStr = DisplayVoiceUtils.bytesToHex(packet);
 System.out.println("数据包: " + hexStr);
 
 // 验证CRC
-byte[] crc = DisplayVoiceCardProtocol.calculateCRC16(data);
-System.out.println("CRC校验: " + DisplayVoiceCardProtocol.bytesToHex(crc));
+byte[] crc = DisplayVoiceUtils.calculateCRC16(data);
+System.out.println("CRC校验: " + DisplayVoiceUtils.bytesToHex(crc));
 许可证
 本项目代码为专用工具类，具体使用请参考相关协议。
 

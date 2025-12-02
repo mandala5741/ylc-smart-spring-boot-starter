@@ -5,8 +5,10 @@ import java.util.Arrays;
 
 /**
  * 显示语音控制卡协议工具类（支持多种屏幕类型）
+ * @author weimeilayer@gmail.com ✨
+ * @date 💓💕 2025年8月27日 🐬🐇 💓💕
  */
-public class DisplayVoiceCardProtocol {
+public class DisplayVoiceUtils {
 
 	// 屏幕类型枚举（与你提供的枚举对应）
 	public enum ScreenEnum {
@@ -106,15 +108,15 @@ public class DisplayVoiceCardProtocol {
 
 	private ScreenEnum screenType;
 
-	public DisplayVoiceCardProtocol() {
+	public DisplayVoiceUtils() {
 		this(ScreenEnum.STANDARD_HORIZONTAL); // 默认标准横屏
 	}
 
-	public DisplayVoiceCardProtocol(ScreenEnum screenType) {
+	public DisplayVoiceUtils(ScreenEnum screenType) {
 		this.screenType = screenType;
 	}
 
-	public DisplayVoiceCardProtocol(int screenCode) {
+	public DisplayVoiceUtils(int screenCode) {
 		this(ScreenEnum.fromCode(screenCode));
 	}
 
@@ -391,21 +393,21 @@ public class DisplayVoiceCardProtocol {
 		System.out.println("=== 不同屏幕类型指令生成示例 ===");
 
 		// 示例1：使用枚举值创建实例
-		DisplayVoiceCardProtocol colorScreen = new DisplayVoiceCardProtocol(ScreenEnum.COLOR_SCREEN);
+		DisplayVoiceUtils colorScreen = new DisplayVoiceUtils(ScreenEnum.COLOR_SCREEN);
 		System.out.println("彩屏类型: " + colorScreen.getScreenType().getDesc());
 
 		byte[] packet1 = colorScreen.buildLoadAdsPacket(1, 8, "欢迎光临");
 		System.out.println("彩屏广告包: " + bytesToHex(packet1));
 
 		// 示例2：使用数字代码创建实例
-		DisplayVoiceCardProtocol horizontalScreen = new DisplayVoiceCardProtocol(4); // 标准横屏代码
+		DisplayVoiceUtils horizontalScreen = new DisplayVoiceUtils(4); // 标准横屏代码
 		System.out.println("横屏类型: " + horizontalScreen.getScreenType().getDesc());
 
 		byte[] packet2 = horizontalScreen.buildLoadAdsPacket(1, 1, "欢迎光临");
 		System.out.println("横屏广告包: " + bytesToHex(packet2));
 
 		// 示例3：动态切换屏幕类型
-		DisplayVoiceCardProtocol screen = new DisplayVoiceCardProtocol();
+		DisplayVoiceUtils screen = new DisplayVoiceUtils();
 		screen.setScreenType(1); // 设置为1模组竖屏_大P
 		System.out.println("当前屏幕: " + screen.getScreenType().getDesc());
 

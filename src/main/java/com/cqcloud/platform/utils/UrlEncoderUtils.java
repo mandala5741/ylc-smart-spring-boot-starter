@@ -5,8 +5,10 @@ import java.nio.charset.StandardCharsets;
 
 /**
  * URL编码工具
+ * @author weimeilayer@gmail.com ✨
+ * @date 💓💕 2025年8月27日 🐬🐇 💓💕
  */
-public class UrlEncoderUtil {
+public class UrlEncoderUtils {
 
 	/**
 	 * 对字符串进行URL编码
@@ -75,7 +77,7 @@ public class UrlEncoderUtil {
 		}
 
 		// 测试完整URL
-		String url = "https://tcc.tlgdiot.cn/wechat/pages/pay/index?carlicense=渝BS775W";
+		String url = "https://xxxxx/wechat/pages/pay/index?carlicense=渝BS775W";
 		String encodedUrl = encodeUrlParams(url);
 		System.out.println("\n原URL: " + url);
 		System.out.println("编码后: " + encodedUrl);

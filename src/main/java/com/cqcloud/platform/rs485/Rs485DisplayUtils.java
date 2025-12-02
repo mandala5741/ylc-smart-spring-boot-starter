@@ -1,8 +1,9 @@
-package com.cqcloud.platform.re485;
+package com.cqcloud.platform.rs485;
 
 import java.nio.charset.StandardCharsets;
 
 /**
+ * RS485显示工具类
  * @author weimeilayer@gmail.com ✨
  * @date 💓💕 2025年8月27日 🐬🐇 💓💕
  */

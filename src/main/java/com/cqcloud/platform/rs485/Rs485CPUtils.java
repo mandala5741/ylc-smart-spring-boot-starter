@@ -1,4 +1,4 @@
-package com.cqcloud.platform.re485;
+package com.cqcloud.platform.rs485;
 
 /**
  * 彩屏
@@ -6,7 +6,7 @@ package com.cqcloud.platform.re485;
  * @author weimeilayer@gmail.com ✨
  * @date 💓💕 2025年8月27日 🐬🐇 💓💕
  */
-public class Rs485CPUtil {
+public class Rs485CPUtils {
 
 	// 流水号计数器
 	private static int serialNumber = 0x20;

@@ -1,12 +1,11 @@
-package com.cqcloud.platform.re485;
+package com.cqcloud.platform.rs485;
 
 /**
  * 横屏(小竖屏)
- *
  * @author weimeilayer@gmail.com ✨
  * @date 💓💕 2025年8月27日 🐬🐇 💓💕
  */
-public class Rs485XSPUtil {
+public class Rs485XSPUtils {
 
 	// 流水号计数器
 	private static int serialNumber = 0x20;

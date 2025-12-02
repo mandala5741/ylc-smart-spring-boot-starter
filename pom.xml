@@ -5,19 +5,18 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>io.github.mandala5741</groupId>
     <artifactId>ylc-smart-spring-boot-starter</artifactId>
-    <version>1.0.1</version>
-    <name>YLC Smart Spring Boot Starter</name>
+    <version>1.0.2</version>
+    <name>Smart Spring Boot Starter</name>
     <description>车辆识别解析 Spring Boot Starter</description>
     <url>https://github.com/mandala5741/ylc-smart-spring-boot-starter</url>
 
     <properties>
-        <hutool.version>5.8.41</hutool.version>
-        <git.commit.plugin>4.9.10</git.commit.plugin>
+        <hutool.version>5.8.42</hutool.version>
         <spring-boot.version>3.5.8</spring-boot.version>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <maven.compiler.release>17</maven.compiler.release>
-        <commons-lang3.version>3.19.0</commons-lang3.version>
+        <commons-lang3.version>3.20.0</commons-lang3.version>
         <maven.compiler.version>3.14.0</maven.compiler.version>
         <spring.checkstyle.version>0.0.47</spring.checkstyle.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -102,7 +101,12 @@
                     <encoding>UTF-8</encoding>
                 </configuration>
             </plugin>
-
+            <!-- 代码格式插件，默认使用spring 规则 -->
+            <plugin>
+                <groupId>io.spring.javaformat</groupId>
+                <artifactId>spring-javaformat-maven-plugin</artifactId>
+                <version>${spring.checkstyle.version}</version>
+            </plugin>
             <!-- 源码打包插件 -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

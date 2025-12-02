@@ -8,8 +8,10 @@ import java.util.List;
 
 /**
  * 显示屏通信数据包装工具类
+ * @author weimeilayer@gmail.com ✨
+ * @date 💓💕 2025年8月27日 🐬🐇 💓💕
  */
-public class LED_ResponseUtil {
+public class LED_ResponseUtils {
 
 	/**
 	 * @param VoiceText 需要播放的语音文字，字符串类型。

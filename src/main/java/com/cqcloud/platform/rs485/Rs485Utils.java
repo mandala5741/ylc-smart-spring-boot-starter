@@ -1,12 +1,12 @@
-package com.cqcloud.platform.re485;
+package com.cqcloud.platform.rs485;
 
-import com.cqcloud.platform.utils.UrlEncoderUtil;
+import com.cqcloud.platform.utils.UrlEncoderUtils;
 
 /**
  * @author weimeilayer@gmail.com ✨
  * @date 💓💕 2025年8月27日 🐬🐇 💓💕
  */
-public class Rs485Util {
+public class Rs485Utils {
 
 	// 帧头帧尾定义
 	private static final String FRAME_HEADER = "AA55";
@@ -512,7 +512,7 @@ public class Rs485Util {
 	 * @return 完整的二维码命令
 	 */
 	public static String buildQrcodeCommand(int mode, int duration, int color, String content) {
-		String hexContent = stringToHex(UrlEncoderUtil.encodeUrlParams(content));
+		String hexContent = stringToHex(UrlEncoderUtils.encodeUrlParams(content));
 		String controlData = String.format("%02X%02X%02X", mode, duration, color) + hexContent;
 		return buildFrame("28", controlData);
 	}
@@ -771,7 +771,7 @@ public class Rs485Util {
 
 		// 3. 生成临时支付二维码（显示60秒）
 		// String paymentQrcode =
-		// Rs485Util.buildPaymentQrcode("https://tcc.tlgdiot.cn/wechat/pages/pay/index?carlicense="+"渝A12345",
+		// Rs485Util.buildPaymentQrcode("https:///wechat/pages/pay/index?carlicense="+"渝A12345",
 		// 60);
 		// System.out.println("支付二维码: " + paymentQrcode);
 		/**

@@ -1,73 +1,78 @@
 package com.cqcloud.platform.context;
 
-
 /**
  * @author weimeilayer@gmail.com ✨
  * @date 💓💕2025年12月2日🐬🐇 💓💕
  */
 public class TextContext {
 
-    private byte LID;   //显示行号
-    private byte DisMode;//显示模式
-    private byte DelayTime;//停留时间
-    private byte DisTimes;//显示次数
-    private int TextColor;//文本颜色
-    private String Text;//显示文本
+	private byte LID; // 显示行号
 
-    public byte getLID() {
-        return LID;
-    }
+	private byte DisMode;// 显示模式
 
-    public void setLID(byte LID) {
-        this.LID = LID;
-    }
+	private byte DelayTime;// 停留时间
 
-    public byte getDisMode() {
-        return DisMode;
-    }
+	private byte DisTimes;// 显示次数
 
-    public void setDisMode(byte disMode) {
-        DisMode = disMode;
-    }
+	private int TextColor;// 文本颜色
 
-    public byte getDelayTime() {
-        return DelayTime;
-    }
+	private String Text;// 显示文本
 
-    public void setDelayTime(byte delayTime) {
-        DelayTime = delayTime;
-    }
+	public byte getLID() {
+		return LID;
+	}
 
-    public byte getDisTimes() {
-        return DisTimes;
-    }
+	public void setLID(byte LID) {
+		this.LID = LID;
+	}
 
-    public void setDisTimes(byte disTimes) {
-        DisTimes = disTimes;
-    }
+	public byte getDisMode() {
+		return DisMode;
+	}
 
-    public int getTextColor() {
-        return TextColor;
-    }
+	public void setDisMode(byte disMode) {
+		DisMode = disMode;
+	}
 
-    public void setTextColor(int textColor) {
-        TextColor = textColor;
-    }
+	public byte getDelayTime() {
+		return DelayTime;
+	}
 
-    public String getText() {
-        return Text;
-    }
+	public void setDelayTime(byte delayTime) {
+		DelayTime = delayTime;
+	}
 
-    public void setText(String text) {
-        Text = text;
-    }
+	public byte getDisTimes() {
+		return DisTimes;
+	}
 
-    public TextContext(byte LID, byte disMode, byte delayTime, byte disTimes, int textColor, String text) {
-        this.LID = LID;
-        DisMode = disMode;
-        DelayTime = delayTime;
-        DisTimes = disTimes;
-        TextColor = textColor;
-        Text = text;
-    }
+	public void setDisTimes(byte disTimes) {
+		DisTimes = disTimes;
+	}
+
+	public int getTextColor() {
+		return TextColor;
+	}
+
+	public void setTextColor(int textColor) {
+		TextColor = textColor;
+	}
+
+	public String getText() {
+		return Text;
+	}
+
+	public void setText(String text) {
+		Text = text;
+	}
+
+	public TextContext(byte LID, byte disMode, byte delayTime, byte disTimes, int textColor, String text) {
+		this.LID = LID;
+		DisMode = disMode;
+		DelayTime = delayTime;
+		DisTimes = disTimes;
+		TextColor = textColor;
+		Text = text;
+	}
+
 }

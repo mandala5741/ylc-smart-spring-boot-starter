@@ -1,6 +1,8 @@
 package com.cqcloud.platform.utils;
 
 
+import com.cqcloud.platform.context.TextContext;
+
 import java.io.UnsupportedEncodingException;
 import java.util.List;
 

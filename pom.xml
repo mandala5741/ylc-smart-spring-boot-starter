@@ -169,7 +169,7 @@
                 </plugins>
             </build>
             <!-- 在 profiles 标签前添加 -->
-            <distributionManagement>
+            <!--<distributionManagement>
                 <snapshotRepository>
                     <id>sonatype</id>
                     <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
@@ -178,7 +178,7 @@
                     <id>sonatype</id>
                     <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
                 </repository>
-            </distributionManagement>
+            </distributionManagement>-->
         </profile>
         <profile>
             <id>release</id>
@@ -255,14 +255,14 @@
                     </plugin>-->
                 </plugins>
             </build>
-            <distributionManagement>
+            <!--<distributionManagement>
                 <repository>
                     <id>sonatype</id>
                     <url>
                         https://oss.sonatype.org/service/local/staging/deploy/maven2/
                     </url>
                 </repository>
-            </distributionManagement>
+            </distributionManagement>-->
         </profile>
     </profiles>
 </project>

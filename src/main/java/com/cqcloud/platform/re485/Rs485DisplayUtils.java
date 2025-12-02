@@ -1,4 +1,4 @@
-package com.cqcloud.platform.utils;
+package com.cqcloud.platform.re485;
 
 import java.nio.charset.StandardCharsets;
 

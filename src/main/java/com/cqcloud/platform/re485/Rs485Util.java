@@ -1,4 +1,6 @@
-package com.cqcloud.platform.utils;
+package com.cqcloud.platform.re485;
+
+import com.cqcloud.platform.utils.UrlEncoderUtil;
 
 /**
  * @author weimeilayer@gmail.com ✨

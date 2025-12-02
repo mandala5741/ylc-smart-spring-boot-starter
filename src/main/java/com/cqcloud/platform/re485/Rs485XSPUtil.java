@@ -1,4 +1,4 @@
-package com.cqcloud.platform.utils;
+package com.cqcloud.platform.re485;
 
 /**
  * 横屏(小竖屏)

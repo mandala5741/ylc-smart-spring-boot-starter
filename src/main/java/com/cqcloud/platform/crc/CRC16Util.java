@@ -1,4 +1,4 @@
-package com.cqcloud.platform.utils;
+package com.cqcloud.platform.crc;
 
 /**
  * CRC16校验工具类

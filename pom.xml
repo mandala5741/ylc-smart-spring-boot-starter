@@ -3,10 +3,12 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.cqcloud.cloud</groupId>
+    <groupId>io.github.mandala5741</groupId>
     <artifactId>ylc-smart-spring-boot-starter</artifactId>
     <version>1.0.1</version>
     <description>车辆识别解析</description>
+
+    <!-- 版本管理 -->
     <properties>
         <hutool.version>5.8.41</hutool.version>
         <git.commit.plugin>4.9.10</git.commit.plugin>
@@ -20,6 +22,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
+    <!-- 许可证信息 -->
     <licenses>
         <license>
             <name>The Apache Software License, Version 2.0</name>
@@ -28,18 +31,22 @@
         </license>
     </licenses>
 
+    <!-- 开发者信息 -->
     <developers>
         <developer>
-            <name>mandala</name>
+            <name>Pandora-D</name>
             <email>weimeilayer@gmail.com</email>
         </developer>
     </developers>
 
+    <!-- 源码管理 -->
     <scm>
         <url>https://github.com/mandala5741/ylc-smart-spring-boot-starter</url>
         <connection>scm:git:https://github.com/mandala5741/ylc-smart-spring-boot-starter.git</connection>
         <developerConnection>scm:git:https://github.com/mandala5741/ylc-smart-spring-boot-starter.git</developerConnection>
     </scm>
+
+    <!-- 依赖项 -->
     <dependencies>
         <dependency>
             <groupId>cn.hutool</groupId>
@@ -57,6 +64,7 @@
         </dependency>
     </dependencies>
 
+    <!-- 依赖管理 -->
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -74,12 +82,39 @@
         </dependencies>
     </dependencyManagement>
 
+    <!-- 构建配置 -->
+    <build>
+        <pluginManagement>
+            <plugins>
+                <!-- 编译器插件 -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>${maven.compiler.version}</version>
+                    <configuration>
+                        <source>${maven.compiler.source}</source>
+                        <target>${maven.compiler.target}</target>
+                        <release>${maven.compiler.release}</release>
+                        <encoding>${project.build.sourceEncoding}</encoding>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
+    <!-- 发布配置 -->
     <profiles>
+        <!-- Snapshot 发布配置 -->
         <profile>
             <id>snapshot</id>
+            <!-- 注意：snapshot版本号应以 -SNAPSHOT 结尾 -->
+            <properties>
+                <!-- 如果需要，可以在这里覆盖版本 -->
+                <!-- <revision>${project.version}-SNAPSHOT</revision> -->
+            </properties>
             <build>
                 <plugins>
-                    <!-- Source -->
+                    <!-- 源码打包 -->
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-source-plugin</artifactId>
@@ -93,7 +128,8 @@
                             </execution>
                         </executions>
                     </plugin>
-                    <!-- Javadoc -->
+
+                    <!-- Javadoc 打包 -->
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-javadoc-plugin</artifactId>
@@ -116,7 +152,8 @@
                             </execution>
                         </executions>
                     </plugin>
-                    <!-- GPG -->
+
+                    <!-- GPG 签名 -->
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-gpg-plugin</artifactId>
@@ -135,35 +172,28 @@
                                 <arg>--pinentry-mode</arg>
                                 <arg>loopback</arg>
                             </gpgArguments>
-                        </configuration>
-                    </plugin>
-                    <plugin>
-                        <groupId>org.sonatype.plugins</groupId>
-                        <artifactId>nexus-staging-maven-plugin</artifactId>
-                        <version>1.7.0</version>
-                        <extensions>true</extensions>
-                        <configuration>
-                            <serverId>sonatype</serverId>
-                            <nexusUrl>https://oss.sonatype.org/</nexusUrl>
-                            <autoReleaseAfterClose>true</autoReleaseAfterClose>
                         </configuration>
                     </plugin>
                 </plugins>
             </build>
             <distributionManagement>
                 <snapshotRepository>
-                    <id>sonatype</id>
-                    <url>
-                        https://oss.sonatype.org/content/repositories/snapshots/
-                    </url>
+                    <id>oss</id>
+                    <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
                 </snapshotRepository>
+                <repository>
+                    <id>oss</id>
+                    <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+                </repository>
             </distributionManagement>
         </profile>
+
+        <!-- Release 发布配置 -->
         <profile>
             <id>release</id>
             <build>
                 <plugins>
-                    <!-- Source -->
+                    <!-- 源码打包 -->
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-source-plugin</artifactId>
@@ -177,7 +207,8 @@
                             </execution>
                         </executions>
                     </plugin>
-                    <!-- Javadoc -->
+
+                    <!-- Javadoc 打包 -->
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-javadoc-plugin</artifactId>
@@ -200,7 +231,8 @@
                             </execution>
                         </executions>
                     </plugin>
-                    <!-- GPG -->
+
+                    <!-- GPG 签名 -->
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-gpg-plugin</artifactId>
@@ -221,27 +253,8 @@
                             </gpgArguments>
                         </configuration>
                     </plugin>
-                    <plugin>
-                        <groupId>org.sonatype.plugins</groupId>
-                        <artifactId>nexus-staging-maven-plugin</artifactId>
-                        <version>1.7.0</version>
-                        <extensions>true</extensions>
-                        <configuration>
-                            <serverId>sonatype</serverId>
-                            <nexusUrl>https://oss.sonatype.org/</nexusUrl>
-                            <autoReleaseAfterClose>true</autoReleaseAfterClose>
-                        </configuration>
-                    </plugin>
                 </plugins>
             </build>
-            <distributionManagement>
-                <repository>
-                    <id>sonatype</id>
-                    <url>
-                        https://oss.sonatype.org/service/local/staging/deploy/maven2/
-                    </url>
-                </repository>
-            </distributionManagement>
         </profile>
     </profiles>
 </project>

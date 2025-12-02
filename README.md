@@ -1,0 +1,1 @@
+http://127.0.0.1:8000/camunda/app/cockpit 查看流程定义是否部署成功

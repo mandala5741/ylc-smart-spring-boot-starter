@@ -47,7 +47,7 @@ byte[] voicePacket = protocol.buildPlayVoicePacket(1);
 2. Rs485Utils - 横屏显示工具类
    java
    // 构建入场场景
-   String[] entryScene = Rs485Utils.buildEntryScene("渝BS775W", 56);
+   String[] entryScene = Rs485Utils.buildEntryScene("渝A12345", 56);
 
 // 构建二维码显示
 String qrcodeCmd = Rs485Utils.buildQrcodeCommand("https://example.com");
@@ -60,14 +60,14 @@ String ttsCmd = Rs485Utils.buildTTSVoiceCommand("欢迎光临");
    String[] display = Rs485CPUtils.buildSmartParkingDisplay(50);
 
 // 彩屏语音播报
-String voiceCmd = Rs485CPUtils.buildPlateWelcomeVoice("渝BS775W");
+String voiceCmd = Rs485CPUtils.buildPlateWelcomeVoice("渝A12345");
 4. Rs485XSPUtils - 小竖屏显示工具类
    java
    // 小竖屏显示
    String cmd = Rs485XSPUtils.buildSmallScreenWelcome();
 
 // 小竖屏完整场景
-String[] scene = Rs485XSPUtils.buildSmallScreenEntryScene("渝BS775W", 48);
+String[] scene = Rs485XSPUtils.buildSmallScreenEntryScene("渝A12345", 48);
 5. Rs485DisplayUtils - 通用显示工具类
    java
    // 智慧停车显示
@@ -103,7 +103,7 @@ byte[] multiData = LED_ResponseUtil.LED_MuiltLineDisAndPlayVoice(textContextList
 9. UrlEncoderUtil - URL编码工具
    java
    // URL参数编码
-   String encodedUrl = UrlEncoderUtil.encodeUrlParams("https://example.com?carlicense=渝BS775W");
+   String encodedUrl = UrlEncoderUtil.encodeUrlParams("https://example.com?carlicense=渝A12345");
    快速开始
 1. 基础使用
    java
@@ -117,7 +117,7 @@ byte[] packet = protocol.buildLoadAdsPacket(1, 1, "欢迎光临");
 String hexStr = DisplayVoiceUtils.bytesToHex(packet);
 2. 停车场入场场景
    java
-   String plateNumber = "渝BS775W";
+   String plateNumber = "渝A12345";
    int parkingSpace = 48;
 
 // 使用Rs485Utils构建入场场景
@@ -127,7 +127,7 @@ String[] entryScene = Rs485Utils.buildEntryScene(plateNumber, parkingSpace);
 String jsonCommand = Rs485Utils.buildRs485Json(entryScene);
 3. 停车场出场场景
    java
-   String plateNumber = "渝BS775W";
+   String plateNumber = "渝A12345";
    String amount = "15";
 
 // 使用Rs485Utils构建出场场景
@@ -189,7 +189,7 @@ java
 DisplayVoiceUtils screen = new DisplayVoiceUtils(ScreenEnum.STANDARD_HORIZONTAL);
 
 // 2. 构建显示命令
-String plateNumber = "渝BS775W";
+String plateNumber = "渝A12345";
 int parkingSpace = 48;
 
 // 第一行：欢迎光临
@@ -213,7 +213,7 @@ String json = Rs485Utils.buildRs485Json(commands);
 示例2：二维码支付场景
 java
 // 生成支付二维码
-String payUrl = "https://xxxxx/wechat/pages/pay/index?carlicense=渝BS775W";
+String payUrl = "https://xxxxx/wechat/pages/pay/index?carlicense=渝A12345";
 String qrcodeCmd = Rs485Utils.buildQrcodeCommand(payUrl);
 
 // 同时显示支付提示
